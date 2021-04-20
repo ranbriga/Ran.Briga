@@ -1,0 +1,77 @@
+
+.Top-Bar {
+    height:50px;
+    width:100%;
+    text-align: center;
+}
+
+.Top-Bar span{
+    display: block;
+    height: 30px;
+    padding-top: 10px;
+}
+
+.Menu {
+    height:50px;
+    width:100%;
+    text-align:center;
+    border-top: black solid 2px;
+    border-bottom: black solid 2px;
+}
+
+.Menu :hover{
+    font-weight: bold;
+}
+
+.ProfileKnowledge{
+    float:left;
+    width: 33%;
+    text-align:center;
+    padding-top: 15px;
+}
+
+.ExperienceMilitary{
+    margin:auto;
+    width: 33%;
+    display: block;
+    text-align:center;
+    padding-top: 15px;
+}
+
+
+.SkillsHobbies{
+    float:right;
+    width: 33%;
+    text-align:center;
+    margin-top: -18px;
+}
+
+
+.opt1 {
+    padding-top :25px;
+    height:200px;
+    border-bottom: black solid 1px;
+    width:100%;
+    text-align:center;
+}
+.opt2 {
+    padding-top :25px;
+    border-bottom: black solid 1px;
+    height:200px;
+    width:100%;
+    text-align:center;
+}
+.opt3 {
+    padding-top :25px;
+    border-bottom: black solid 1px;
+    height:200px;
+    width:100%;
+    text-align:center;
+}
+.opt4 {
+    padding-top :25px;
+    height:200px;
+    width:100%;
+    text-align:center;
+}
+
