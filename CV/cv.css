@@ -6,17 +6,26 @@
 }
 
 .Top-Bar span{
+    font-size: 20px;
     display: block;
     height: 30px;
     padding-top: 10px;
 }
 
 .Menu {
+    text-decoration: none;
+    color: black;
+    cursor: pointer;
     height:50px;
     width:100%;
     text-align:center;
     border-top: black solid 2px;
     border-bottom: black solid 2px;
+}
+
+.Menu a{
+    text-decoration: none;
+    color: black;
 }
 
 .Menu :hover{
@@ -48,30 +57,124 @@
 
 
 .opt1 {
+    font-weight: bold;
     padding-top :25px;
+    padding-bottom: 20px;
     height:200px;
     border-bottom: black solid 1px;
     width:100%;
     text-align:center;
 }
+
+.opt1 p{
+    font-weight: normal;
+}
+
 .opt2 {
+    font-weight: bold;
     padding-top :25px;
     border-bottom: black solid 1px;
-    height:200px;
+    height:150px;
     width:100%;
     text-align:center;
+}
+
+.opt2 p{
+    font-weight: normal;
+    margin-left: 150px;
+    margin-right: 150px;
 }
 .opt3 {
+    font-weight: bold;
     padding-top :25px;
     border-bottom: black solid 1px;
-    height:200px;
-    width:100%;
-    text-align:center;
-}
-.opt4 {
-    padding-top :25px;
     height:200px;
     width:100%;
     text-align:center;
 }
 
+.opt3 p{
+    font-weight: normal;
+}
+.opt4 {
+    font-size: 40px;
+    cursor: pointer;
+    padding-top :40px;
+    height:100px;
+    width:100%;
+    text-align:center;
+}
+
+.opt4:hover{
+    font-weight: bold;
+}
+
+{box-sizing: border-box;}
+
+/* The popup form - hidden by default */
+.form-popup {
+    text-align:center;
+  display: none;
+  position: fixed;
+  bottom:10%;
+  left: 30%;
+  z-index:999;
+  border: 2px solid black;
+  background-color: white;
+}
+
+
+/* Add styles to the form container */
+.form-container {
+  max-width: 100%;
+  padding: 10px;
+}
+
+/* Full-width input fields */
+.form-container input{
+  text-align: center;
+  width: 75%;
+  padding: 15px;
+  margin: 0px 0 22px 0;
+  background: #f1f1f1;
+}
+
+/* When the inputs get focus, do something */
+.form-container input:focus {
+  background-color: #ddd;
+  outline: none;
+}
+
+/* Set a style for the submit/login button */
+.form-container .btn {
+  width: 300px;
+  background-color: #04AA6D;
+  color: white;
+  padding: 16px 24px;
+  border: none;
+  cursor: pointer;
+  margin-bottom:10px;
+  border: 1px solid black;
+  opacity: 0.8;
+}
+
+.form-container .btn.sign_in {
+  width: 147.5px;
+  background-color: #04AA6D;
+}
+
+.form-container .btn.sign_up {
+  background-color: darkgray;
+  width: 147.5px;
+}
+
+
+/* Add a red background color to the cancel button */
+.form-container .btn.cancel {
+  background-color: red;
+}
+
+/* Add some hover effects to buttons */
+.form-container .btn:hover{
+  opacity: 1;
+}
