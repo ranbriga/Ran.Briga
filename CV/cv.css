@@ -1,4 +1,6 @@
-
+*{
+    font-family: Opensans;
+}
 .Top-Bar {
     height:50px;
     width:100%;
@@ -52,7 +54,7 @@
     float:right;
     width: 33%;
     text-align:center;
-    margin-top: -18px;
+    margin-top: -22px;
 }
 
 
@@ -60,7 +62,7 @@
     font-weight: bold;
     padding-top :25px;
     padding-bottom: 20px;
-    height:200px;
+    height:250px;
     border-bottom: black solid 1px;
     width:100%;
     text-align:center;
@@ -74,7 +76,7 @@
     font-weight: bold;
     padding-top :25px;
     border-bottom: black solid 1px;
-    height:150px;
+    height:200px;
     width:100%;
     text-align:center;
 }
@@ -88,7 +90,7 @@
     font-weight: bold;
     padding-top :25px;
     border-bottom: black solid 1px;
-    height:200px;
+    height:250px;
     width:100%;
     text-align:center;
 }
