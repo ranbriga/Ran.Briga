@@ -11,9 +11,9 @@ def home():
 def my_contactList():
     return render_template('ContactList.html')
 
-@app.route('/HomeWork8', methods=['GET', 'POST', 'DELETE', 'PUT'])
-def hello_HomeWork8():
-    return render_template('HomeWork8.html',
+@app.route('/assignment8', methods=['GET', 'POST', 'DELETE', 'PUT'])
+def my_assignment8():
+    return render_template('assignment8.html',
                            user={'name': "Ran Briga"},
                            hobbies=['FreeDiving', 'Football', 'Guitar'])
 
