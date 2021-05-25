@@ -13,7 +13,7 @@ def home():
 def my_contactList():
     return render_template('ContactList.html')
 
-@app.route('/assignment8', methods=['GET', 'POST', 'DELETE', 'PUT'])
+@app.route('/assignment8.html', methods=['GET', 'POST', 'DELETE', 'PUT'])
 def my_assignment8():
     contact_user = {'firstname': 'Ran', 'lastname': 'Briga'}
     hobbies=['FreeDiving', 'Football', 'Guitar']
