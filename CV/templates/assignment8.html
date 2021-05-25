@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Assignment8</title>
+</head>
+<body>
+    {% extends "cv.html" %}
+      {% block content %}
+          {% if user %}
+      <h1> {{ user.name | upper }} Hobbies </h1>
+          {% else %}
+          <h1>STRANGER HOBBIES</h1>
+          {% endif %}
+      {% for hobby in hobbies %}
+          <li>{{ hobby | lower }}</li>
+          {% endfor %}
+      <p> And Here.... </p>
+      {% endblock %}
+</body>
+</html>
