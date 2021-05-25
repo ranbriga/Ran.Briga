@@ -1,6 +1,8 @@
-from flask import Flask, redirect, url_for, render_template
+from flask import Flask, url_for, redirect
+from flask import render_template
 
 app = Flask(__name__)
+
 
 @app.route('/main', methods=['PUT', 'POST', 'GET'])
 @app.route('/', methods=['GET', 'POST', 'DELETE', 'PUT'])
@@ -19,6 +21,5 @@ def my_assignment8():
                            hobbies=hobbies,
                            contact_user=contact_user)
 
-
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run()
