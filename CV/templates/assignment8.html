@@ -2,17 +2,17 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" href="../static/css/assignment8.css">
     <title> Assignment8 </title>
 </head>
 <body>
-    {% extends "cv.html" %}
       {% block content %}
           {% if contact_user %}
-                <h1 style="color: red">Hi {{ contact_user.firstname }} {{ contact_user.lastname }}</h1>
+                <h1 style="color: red">I am {{ contact_user.firstname }} {{ contact_user.lastname }}</h1>
             {% else %}
-                <h1 style="color: black">Hi Guest</h1>
+                <h1 style="color: black">I am Stranger, but i still have hobbies :) </h1>
             {% endif %}
-          <h1>My Hobbies</h1>
+          <h1>My Hobbies are</h1>
       {% for hobby in hobbies %}
           <li>{{ hobby | lower }}</li>
           {% endfor %}
