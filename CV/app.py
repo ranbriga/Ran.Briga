@@ -17,17 +17,6 @@ def my_assignment8():
                            user={'name': "Ran Briga"},
                            hobbies=['FreeDiving', 'Football', 'Guitar'])
 
-@app.route('/howAreYou')
-def hay():
-    return 'hello there! how are you? '
-    
-@app.route('/nicetomeetyou')
-def hello():
-    return redirect('/howAreYou')
-
-@app.route('/goHome')
-def goMain():
- return redirect(url_for('main'))
 
 if __name__ == '__main__':
     app.run()
