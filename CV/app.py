@@ -1,7 +1,7 @@
 from flask import Flask, url_for, redirect
 from flask import render_template
 
-app = Flask(_name_)
+app = Flask(__name__)
 
 @app.route('/', methods=['GET', 'POST', 'DELETE', 'PUT'])
 def home():
@@ -29,5 +29,5 @@ def hello():
 def goMain():
  return redirect(url_for('main'))
 
-if _name_ == '_main_':
+if __name__ == '__main__':
     app.run()
