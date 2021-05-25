@@ -7,11 +7,12 @@
 <body>
     {% extends "cv.html" %}
       {% block content %}
-          {% if user %}
-      <h1> {{ user.name | upper }} Hobbies </h1>
-          {% else %}
+          {% if contact_user %}
+                <h1 style="color: red">Hi {{ contact_user.firstname }} {{ contact_user.lastname }}</h1>
+            {% else %}
+                <h1 style="color: black">Hi Guest</h1>
+            {% endif %}
           <h1>My Hobbies</h1>
-          {% endif %}
       {% for hobby in hobbies %}
           <li>{{ hobby | lower }}</li>
           {% endfor %}
