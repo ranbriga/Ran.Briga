@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="../static/css/assignment8.css">
+    <title> Assignment8 </title>
+</head>
+<body>
+<header style="text-align: center">
+    {% if session.get('loggedIn')==False or 'loggedIn' not in session %}
+        <h2 style="color: red">Hello Guest</h2>
+    {% endif %}
+    {% if session.get('loggedIn')==True %}
+        <h2 style="color: red"> Hello {{ session['username'] }}</h2>
+    {% endif %}
+</header>
+      {% block content %}
+          {% if contact_user %}
+                <h1 style="color: red">I am {{ contact_user.firstname }} {{ contact_user.lastname }}</h1>
+            {% else %}
+                <h1 style="color: black">I am Stranger, but i still have hobbies :) </h1>
+            {% endif %}
+          <h1>My Hobbies are</h1>
+      {% for hobby in hobbies %}
+          <li>{{ hobby | lower }}</li>
+          {% endfor %}
+      {% endblock %}
+</body>
+</html>

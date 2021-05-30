@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Assignment 9</title>
+	<link rel="stylesheet" href="../static/css/assignment8.css">
+</head>
+<body>
+<header style="text-align: center">
+    {% if session.get('loggedIn')==False or 'loggedIn' not in session %}
+        <h2 style="color: red">Hello Guest</h2>
+    {% endif %}
+    {% if session.get('loggedIn')==True %}
+        <h2 style="color: red"> Hello {{ session['username'] }}</h2>
+    {% endif %}
+</header>
+<h1 style="margin:12px;">Search users</h1>
+<form name="search" method="get" action="{{ url_for('my_assignment9') }}">
+	<label for="searchBox">Search by Username:</label>
+	<input type="text" id="searchBox" name="username">
+	<input type="submit" value="Search">
+</form>
+{% if search %}
+	{% if found==True %}
+        <br>
+        <span>User Username: </span><span style="font-weight :bold">{{ username }}</span> <br>
+		<span>User First name: {{ users["firstName"] }}</span><br>
+        <span>User Last name: {{ users["lastName"] }}</span><br>
+		<span>Users Email: {{ users["email"] }}</span>
+	{% elif found==False %}
+        <br>
+		<div>We didnt found any Username match your search</div>
+	{% else %}
+		{% for user in users %}
+            <br>
+			<span>User Username: {{ user }}</span><br>
+			<span>User First name: {{ users[user]["firstName"] }}</span><br>
+            <span>User Last name: {{ users["lastName"] }}</span><br>
+			<span>User Email: {{ users[user]["email"] }}</span><br>
+		{% endfor %}
+    {% endif %}
+{% endif %}
+<hr style="margin:30px 0 30px 0;">
+{% if session.get('loggedIn')==False or 'loggedIn' not in session %}
+		<h1 style="margin:10px;">Registration Form</h1>
+		<form name="registration" method="post" action="{{ url_for('my_assignment9') }}">
+			<label for="username">User Username:</label>
+			<input type="text" id="username" name="username"><br><br>
+			<label for="firstname">User First Name:</label>
+			<input type="text" id="firstname" name="firstname"><br><br>
+            <label for="lastname">User Last Name:</label>
+			<input type="text" id="lastname" name="lastname"><br><br>
+			<label for="email">User Email:</label>
+			<input type="email" id="email" name="email"><br><br>
+			<input type="submit" value="Register">
+		</form>
+    {% if exists %}
+        <br>
+        <span> User already Exist, Try different username </span>
+    {% endif %}
+{% endif %}
+{% if session.get('loggedIn')==True %}
+    <span style="font-weight: bold;"> {{ session['username'] }} </span> <span>is Logged in, wanna log out ?</span>
+    <br><br>
+		<form name="registration" method="post" action="{{ url_for('my_assignment9') }}">
+        <input type="submit" value="Log Out">
+        </form>
+{% endif %}
+</body>
+</html>

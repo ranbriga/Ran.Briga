@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatibale" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>The Contact List</title>
+    <link rel="stylesheet" href="../static/css/ContactList.css">
+</head>
+<body>
+<header style="text-align: center">
+    {% if session.get('loggedIn')==False or 'loggedIn' not in session %}
+        <h2 style="color: red">Hello Guest</h2>
+    {% endif %}
+    {% if session.get('loggedIn')==True %}
+        <h2 style="color: red"> Hello {{ session['username'] }}</h2>
+    {% endif %}
+</header>
+<h1>The User's Contact List:</h1>
+<main>
+</main>
+<script src="../static/js/ContactList.js"></script>
+</body>
+</html>
