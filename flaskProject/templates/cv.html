@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<style>
+    @font-face { font-family: Opensans; src:url("../static/ttf/OpenSans.ttf"); }
+</style>
+    <head>
+        <title>Ran Briga CV </title>
+        <link rel="stylesheet" href="../static/css/cv.css">
+        <script src="../static/js/cv.js"></script>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+         <div class="row">
+             <div class="Top-Bar">
+                 <div class="Facebook">
+                     <a href="https://www.facebook.com/ran.briga/">
+                         <img src="../../Ran.Briga/flaskProject/static/image/facebook.png" height="30px" width="30px"></img></a>
+                </div>
+                <div class="Logo2">
+                    <span> Ranbriga21@gmail.com | 050-4409922  </span>
+                </div>
+                <div class="Instagram">
+                    <a href="https://www.instagram.com/ranbriga21/">
+                    <img src="../../Ran.Briga/flaskProject/static/image/instagram.png" height="30px" width="30px"></a>
+                </div>
+             </div>
+         </div>
+             <div class="Menu">
+                 <a href="#opt1" class="ProfileKnowledge"> Profile & Knowledge </a>
+                 <a href="#opt2" class="ExperienceMilitary"> Experience & Military </a>
+                 <a href="#opt3" class="SkillsHobbies"> Skills & Hobbies </a>
+             </div>
+             <div id="opt1" class="opt1">Profile & Knowledge
+                 <p>
+	High-level analytics skills<br>
+	A true team-player<br>
+	"Can-Do" approach<br>
+	Goal-Directed<br>
+	High ability to work on multiple number of tasks in parallel<br>
+	Experienced with coding in several languages<br>
+	Excellent interpersonal communication<br>
+	A self-learner, adapt quickly to changes<br>
+	Have tremendous motivation to learn and succeed<br>
+</p>
+             </div>
+             <div id="opt2" class="opt2">Experience & Military
+                 <p>R&D Projects Planner at Elbit Systems– Ongoing work in conjunction with the product development managers. As part of my responsibilities, I oversee planning and monitoring project requirements, coordinating with factories and external bodies in accordance with the development managers and planners. I am responsible for dismantling products to components and tracking the status of the procurement procedure, as well as presenting the status of the projects, In my military service i served at the Navy battleship's ( Combat soldier ), early discharged because of Medical Issues.</p>
+             </div>
+             <div id="opt3" class="opt3">Skills & Hobbies
+             <p>
+	Java, VBA, Python, SQL, C# , Familiar with OOP principles<br>
+	WEB : JavaScript, CSS, HTML, PHP<br>
+	Microsoft Office (An Excel expert)<br>
+	Android application development ( ANDROID STUDIO )<br>
+	Proficient in AS400, PLM, ERP (LN), Jira<br>
+	Hebrew – Native speaker<br>
+	English- Speaking, writing and reading at a high level<br>
+</p>
+             </div>
+             <div class="opt4" onclick="openForm()">Click here to Contact Me </div>
+                 <div class="form-popup" id="myForm">
+                 <form class="form-container">
+                        <h2>Contact Details</h2>
+                        <label for="name"><b>Full Name</b></label>
+                        <br>
+                        <input type="text" placeholder="Enter Your name" name="name" required>
+                        <br>
+                        <label for="phone"><b>Phone</b></label>
+                        <br>
+                        <input type="tel" placeholder="Enter Your Phone" name="phone" required>
+                        <br>
+                        <label for="email"><b>Email</b></label>
+                        <br>
+                        <input type="email" placeholder="Enter Your Email" name="email" required>
+                        <button type="submit" class="btn">Send</button>
+                        <br>
+                        <button class="btn cancel" onclick="closeForm()">Close</button>
+                    </form>
+                 </div>
+         </div>
+            <div id="opt5" onclick="document.location='ContactList.html'" class="opt5"> Click Here to move to the Contact List </div>
+    </body>
+</html>
