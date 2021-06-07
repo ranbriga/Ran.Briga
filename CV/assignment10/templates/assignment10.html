@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    	<title>Assignment 10</title>
+    <link rel="stylesheet" href="../static/css/assignment8.css">
+</head>
+<body>
+
+<h2>Insert new user:</h2>
+<form name="INSERT" method="POST" action="/insert_user">
+        <input type="text" name="username" placeholder="Enter username"><br>
+        <input type="text" name="first_name" placeholder="Enter user first name"><br>
+        <input type="text" name="last_name" placeholder="Enter user last name"><br>
+        <input type="email" name="email" placeholder="Enter user email"><br><br>
+        <input type="submit" value="INSERT">
+</form>
+
+{% if Inserted == True %}
+    <h4 style="color: green">The user successfully added to the DB</h4>
+{% elif Inserted == False %}
+    <h4 style="color: red">The user already exist in the DB</h4>
+{% endif %}
+
+<hr>
+
+<h2>Update user by username:</h2>
+<form name="UPDATE" method="post" action="/update_user">
+    <input type="text" name="username" placeholder="Enter user name"><br>
+    <input type="text" name="first_name" placeholder="Enter user first name"><br>
+    <input type="text" name="last_name" placeholder="Enter user last name"><br>
+    <input type="email" name="email" placeholder="Enter user email"><br><br>
+    <input type="submit" value="UPDATE">
+</form>
+{% if Updated == True%}
+    <h4 style="color: green">The user successfully updated on the DB</h4>
+{% elif Updated == False %}
+    <h4 style="color: red">Unfortunately The user doesnt exist</h4>
+{% endif %}
+<hr>
+
+<h2>Delete user by username:</h2>
+<form name="DELETE" method="post" action="/delete_user">
+    <input type="text" name="username" placeholder="Enter username"><br><br>
+    <input type="submit" value="DELETE">
+</form>
+{% if Deleted == True%}
+    <h4 style="color: green">The user successfully deleted from the DB</h4>
+{% elif Deleted == False %}
+    <h4 style="color: red">Unfortunately The user doesnt exist</h4>
+{% endif %}
+<hr>
+
+<h2>Get all users list:</h2>
+<form name="GET" method="post" action="/get_users">
+    <input type="submit" value="GET">
+</form>
+{% if GET %}
+    {% for user in AllUsers %}
+            <br>
+			<span>User Username: {{ user.username }}</span><br>
+			<span>User First name: {{ user.firstName }}</span><br>
+            <span>User Last name: {{ user.lastName }}</span><br>
+			<span>User Email: {{ user.email }}</span><br>
+    {% endfor %}
+{% endif %}
+<hr>
+
+</body>
+</html>
