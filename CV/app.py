@@ -9,12 +9,14 @@ app = Flask(__name__)
 def home():
     return render_template('cv.html')
 
+app.secret_key ='6595'
+
 MyUsers = {
-    "Tal123": {"firstName": "Tal", "lastName": "Elbaz", "email": "talel@gmail.com", "password": "1111"},
-    "Dana123": {"firstName": "Dana", "lastName": "Briga", "email": "danabr@gmail.com", "password": "1212"},
-    "Gal123": {"firstName": "Gal", "lastName": "Briga", "email": "galbr@gmail.com", "password": "1313"},
-    "Ran123": {"firstName": "Ran", "lastName": "Briga", "email": "ranbr@gmail.com", "password": "1414"},
-    "Ido123": {"firstName": "Ido", "lastName": "Perchik", "email": "idoper@gmail.com", "password": "1515"}
+    "Tal123": {"firstName": "Tal", "lastName": "Elbaz", "email": "talel@gmail.com"},
+    "Dana123": {"firstName": "Dana", "lastName": "Briga", "email": "danabr@gmail.com"},
+    "Gal123": {"firstName": "Gal", "lastName": "Briga", "email": "galbr@gmail.com"},
+    "Ran123": {"firstName": "Ran", "lastName": "Briga", "email": "ranbr@gmail.com"},
+    "Ido123": {"firstName": "Ido", "lastName": "Perchik", "email": "idoper@gmail.com"}
 }
 
 @app.route('/ContactList.html', methods=['GET', 'POST', 'DELETE', 'PUT'])
@@ -29,18 +31,15 @@ def my_assignment8():
                            hobbies=hobbies,
                            contact_user=contact_user)
 
-@app.route('/assignment9', methods=['GET', 'POST', 'DELETE', 'PUT'])
-def assignment9():
-    if 'loggedIn' not in session:
-        session['loggedIn'] = False
-        session['username'] = ''
+@app.route('/assignment9.html', methods=['GET', 'POST', 'DELETE', 'PUT'])
+def my_assignment9():
     if request.method == 'GET':
         if request.args:
             if "username" in request.args:
                 SearchUser = request.args["username"]
-                if SearchUser != '' and SearchUser in MyUsers:
+                if SearchUser in MyUsers and SearchUser != '':
                     return render_template("assignment9.html", username=SearchUser, users=MyUsers[SearchUser], found=True, search=True)
-                elif SearchUser != '' and SearchUser not in MyUsers:
+                elif SearchUser not in MyUsers and SearchUser != '':
                     return render_template("assignment9.html", found=False, search=True)
                 else:
                     return render_template("assignment9.html", users=MyUsers, search=True)
@@ -49,15 +48,22 @@ def assignment9():
         else:
             return render_template("assignment9.html")
     elif request.method == 'POST':
-        if request.form['username'] not in MyUsers:
-            MyUsers[request.form['username']] = {"firstName": request.form['firstname'], "email": request.form['email'],
-                                                  "password": request.form['password']}
-            session['loggedIn'] = True
-            session['username'] = request.form['username']
-            return render_template("assignment9.html")
+        if not session.get('loggedIn'):
+            if request.form['username'] not in MyUsers:
+                MyUsers[request.form['username']] = {"firstName": request.form['firstname'], "lastName": request.form['lastname'],
+                                                     "email": request.form['email']}
+                session['loggedIn'] = True
+                session['username'] = request.form['username']
+                return render_template("assignment9.html", exists=False)
+            if request.form['username'] in MyUsers:
+                session['loggedIn'] = False
+                return render_template("assignment9.html", exists=True)
         else:
             session['loggedIn'] = False
-            return render_template("assignment9.html", exists=True)
+            return render_template("assignment9.html")
+
+from assignment10.assignment10 import assignment10
+app.register_blueprint(assignment10)
 
 if __name__ == '__main__':
     app.run()
