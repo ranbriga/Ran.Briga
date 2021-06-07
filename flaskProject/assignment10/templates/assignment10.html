@@ -2,13 +2,13 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>assignment10</title>
+    	<title>Assignment 10</title>
     <link rel="stylesheet" href="../static/css/assignment8.css">
 </head>
 <body>
 
-<h2>Insertion Form:</h2>
-<form name="INSERT" method="POST" action="/insert">
+<h2>Insert new user:</h2>
+<form name="INSERT" method="POST" action="/insert_user">
         <input type="text" name="username" placeholder="Enter username"><br>
         <input type="text" name="first_name" placeholder="Enter user first name"><br>
         <input type="text" name="last_name" placeholder="Enter user last name"><br>
@@ -25,7 +25,7 @@
 <hr>
 
 <h2>Update user by username:</h2>
-<form name="UPDATE" method="post" action="/update">
+<form name="UPDATE" method="post" action="/update_user">
     <input type="text" name="username" placeholder="Enter user name"><br>
     <input type="text" name="first_name" placeholder="Enter user first name"><br>
     <input type="text" name="last_name" placeholder="Enter user last name"><br>
@@ -40,7 +40,7 @@
 <hr>
 
 <h2>Delete user by username:</h2>
-<form name="DELETE" method="post" action="/delete">
+<form name="DELETE" method="post" action="/delete_user">
     <input type="text" name="username" placeholder="Enter username"><br><br>
     <input type="submit" value="DELETE">
 </form>
