@@ -18,10 +18,10 @@ def interact_db(query, query_type: str):
     cursor = connection.cursor(named_tuple=True)
     cursor.execute(query)
 
-    if query_type == 'commit':  # change DB
+    if query_type == 'commit': 
         connection.commit()
         return_value = True
-    if query_type == 'fetch':  # read DB
+    if query_type == 'fetch': 
         query_result = cursor.fetchall()
         return_value = query_result
 
@@ -37,9 +37,8 @@ def return_users():
     return render_template('assignment10.html', AllUsers=query_result, GET=True)
 
 
-
-@assignment10.route('/insert', methods=['GET', 'POST'])
-def insert_users():
+@assignment10.route('/insert_user', methods=['GET', 'POST'])
+def insert_user():
     if request.method == 'POST':
         TableQuery = "select username from users"
         TableUsers = interact_db(query=TableQuery, query_type='fetch')
@@ -61,8 +60,8 @@ def insert_users():
             return render_template('assignment10.html', req_method=request.method, Inserted=False)
 
 
-@assignment10.route('/delete', methods=['POST'])
-def delete_users():
+@assignment10.route('/delete_user', methods=['POST'])
+def delete_user():
     TableQuery = "select username from users"
     TableUsers = interact_db(query=TableQuery, query_type='fetch')
     user_name = request.form['username']
@@ -82,8 +81,8 @@ def delete_users():
             return render_template('assignment10.html', req_method=request.method, Deleted=False)
 
 
-@assignment10.route('/update', methods=['GET', 'POST'])
-def update():
+@assignment10.route('/update_user', methods=['GET', 'POST'])
+def update_user():
     if request.method == 'POST':
         TableQuery = "select username from users"
         TableUsers = interact_db(query=TableQuery, query_type='fetch')
