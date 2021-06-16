@@ -79,7 +79,7 @@ def my_assignment11():
 
 @app.route('/assignment11/users/selected/', defaults={'SOME_USER_ID': 1})
 @app.route('/assignment11/users/selected/<int:SOME_USER_ID>')
-def get_user(SOME_USER_ID):
+def get_alloftheusers(SOME_USER_ID):
     if SOME_USER_ID:
         query = "SELECT * FROM users WHERE id='%s'" % SOME_USER_ID
         query_result = interact_db(query, query_type='fetch')
