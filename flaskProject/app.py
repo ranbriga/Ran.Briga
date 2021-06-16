@@ -1,4 +1,4 @@
-from flask import Flask, redirect, url_for, render_template, request, session
+from flask import Flask, redirect, url_for, render_template, request, session, jsonify
 from flask import render_template
 
 app = Flask(__name__)
@@ -62,8 +62,31 @@ def my_assignment9():
             session['loggedIn'] = False
             return render_template("assignment9.html")
 
-from assignment10.assignment10 import assignment10
+
+from assignment10.assignment10 import assignment10, interact_db
+
 app.register_blueprint(assignment10)
+
+
+# assigment 11
+
+@app.route('/assignment11/users', methods=['GET'])
+def assignment11():
+    query = "SELECT * FROM userss "
+    query_result = interact_db(query, query_type='fetch')
+    return jsonify(users=query_result)
+
+
+@app.route('/assignment11/users/selected/', defaults={'SOME_USER_ID': 1})
+@app.route('/assignment11/users/selected/<int:SOME_USER_ID>')
+def get_user(SOME_USER_ID):
+    if SOME_USER_ID:
+        query = "SELECT * FROM users WHERE id='%s'" % SOME_USER_ID
+        query_result = interact_db(query, query_type='fetch')
+        if len(query_result) != 0:
+            return jsonify(query_result)
+    return jsonify({'success': False, 'error': 'Unfortunately the user is not exist'})
+
 
 if __name__ == '__main__':
     app.run()
