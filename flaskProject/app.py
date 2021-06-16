@@ -71,8 +71,8 @@ app.register_blueprint(assignment10)
 # assigment 11
 
 @app.route('/assignment11/users', methods=['GET'])
-def assignment11():
-    query = "SELECT * FROM userss "
+def my_assignment11():
+    query = "SELECT * FROM users "
     query_result = interact_db(query, query_type='fetch')
     return jsonify(users=query_result)
 
